@@ -1,15 +1,20 @@
+// David Nagy
+//5/1/19
+// json-search.js
+// description : input name to search for
 
 
 $("#search").on("click", function()
 {
     var name= $("#input").val();
     var found = false;
-
+//calling getjson
     $(function() {
     $.getJSON("json-search.json", function(result)
     {
         $.each(result, function(index, object)
         {
+            //lowercase method being called
             if (object.name.toLowerCase() === name.toLowerCase())
             {
                 found = true;
@@ -24,7 +29,7 @@ $("#search").on("click", function()
 
             }
         });
-
+        //if not found
         if (!found) {
             $("#output").html("No name found");
         }
